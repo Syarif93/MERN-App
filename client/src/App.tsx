@@ -3,8 +3,8 @@ import { AuthContext } from "./AuthProvider";
 import { useRoutes } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Home from "./pages/Home";
 import axios from "axios";
+import Home from "./pages/Home";
 
 axios.defaults.baseURL = "http://localhost:5000";
 

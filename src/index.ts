@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import { config as dotenv } from "dotenv";
 import path from "path";
 import cors from "cors";
+import MessageController from "./controllers/MessageController";
 
 dotenv();
 
@@ -25,6 +26,8 @@ app.get("/", (req: Request, res: Response) => {
 
 app.post("/register", AuthController.register);
 app.post("/login", AuthController.login);
+app.get("/messages", MessageController.list);
+app.post("/messages", MessageController.create);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);

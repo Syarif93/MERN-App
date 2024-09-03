@@ -80,7 +80,7 @@ const Login = () => {
           </div>
           <Button type="submit">Submit</Button>
           <Link to="/register" className="text-blue-500">
-            Register
+            Login
           </Link>
         </form>
       </Card>
