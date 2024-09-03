@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "nodemon src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "client:dev": "cd ./client && npm run dev",
+    "client:build": "cd ./client && npm run build"
   },
   "keywords": [],
   "author": "",

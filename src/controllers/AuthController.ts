@@ -42,6 +42,8 @@ class AuthController {
       );
 
       if (passCompare) {
+        user.lastLogin = new Date();
+        user.save();
         const token = Authentication.generateToken(user._id, user.email);
 
         return res.status(200).json(
