@@ -4,6 +4,7 @@ import AuthController from "./controllers/AuthController";
 import bodyParser from "body-parser";
 import { config as dotenv } from "dotenv";
 import path from "path";
+import cors from "cors";
 
 dotenv();
 
@@ -13,6 +14,7 @@ const port = process.env.PORT || 5000;
 app.use(express.static(path.join("app")));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(bodyParser.json({ limit: "30mb" }));
+app.use(cors());
 
 // MongoDB Connection
 DBConnect();
