@@ -5,14 +5,9 @@ import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 type CreateMessageProps = {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  setMessages: Dispatch<SetStateAction<any[]>>;
 };
 
-const CreateMessage = ({
-  isOpen,
-  setIsOpen,
-  setMessages,
-}: CreateMessageProps) => {
+const CreateMessage = ({ isOpen, setIsOpen }: CreateMessageProps) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [data, setData] = useState<{
     email: string;
@@ -30,7 +25,7 @@ const CreateMessage = ({
     try {
       const res = await axios.post("/messages", data);
       if (res.status === 201) {
-        setMessages((prev) => [res.data.data, ...prev]);
+        // setMessages((prev) => [res.data.data, ...prev]);
         closeModal();
       }
     } catch (err) {
