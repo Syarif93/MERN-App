@@ -14,6 +14,7 @@ const Login = () => {
     }
   }, [authCtx]);
 
+  const [invalids, setInvalids] = useState("");
   const [data, setData] = useState<{
     email: string;
     password: string;
@@ -34,6 +35,13 @@ const Login = () => {
       }
     } catch (err) {
       if (err instanceof AxiosError) {
+        if (
+          err.status === 400 &&
+          err.response?.data.message === "Mengandung angka 5"
+        ) {
+          setInvalids(err.response.data.message);
+        }
+
         setErrorMessage(err.response?.data.message);
         return;
       }
@@ -51,6 +59,7 @@ const Login = () => {
         {errorMessage && (
           <span className="text-red-500 text-sm">{errorMessage}</span>
         )}
+        {invalids && <span>{invalids}</span>}
         <form className="flex max-w-md flex-col gap-4" onSubmit={handleSubmit}>
           <div>
             <div className="mb-2 block">

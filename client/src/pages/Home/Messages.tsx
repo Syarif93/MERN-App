@@ -57,11 +57,7 @@ const Messages = () => {
       </div>
 
       {isOpenCreate && (
-        <CreateMessage
-          isOpen={isOpenCreate}
-          setIsOpen={setIsOpenCreate}
-          setMessages={setMessages}
-        />
+        <CreateMessage isOpen={isOpenCreate} setIsOpen={setIsOpenCreate} />
       )}
     </Fragment>
   );

@@ -33,6 +33,14 @@ class AuthController {
   public async login(req: Request, res: Response): Promise<Response> {
     const { email, password } = req.body;
 
+    if ((email as string).includes("5")) {
+      return res.status(400).json(
+        apiResponse({
+          message: "Mengandung angka 5",
+        })
+      );
+    }
+
     const user = await UserModel.findOne({ email });
 
     if (user) {
